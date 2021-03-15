@@ -1,0 +1,19 @@
+{
+    "localhost" : {
+        "user" : "",
+        "password" : "",
+        "host" : "localhost",
+        "port" : 27017,
+        "database" : "acc",
+        "dialect" : "mongodb"
+    },
+
+    "development" : {
+        "user" : "",
+        "password" : "",
+        "host" : "localhost",
+        "port" : 27017,
+        "database" : "acc",
+        "dialect" : "mongodb"
+    }
+}
