@@ -1,0 +1,93 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Demo API documentation",
+      "description": "CRUD operations in MongoDB",
+      "version": "1.0"
+    },
+    "produces": ["application/json"],
+    "paths": {
+      "/users": {
+        "get" : {
+            "description" : "Get all users data",
+            "tags" : ["/users"],
+            "parameters" : [{
+                "name" : "limit",
+                "in" : "query"
+            },{
+                "name" : "offset",
+                "in" : "query"
+            }],
+            "responses": {
+                "200" : {
+                    "description" : "OK"
+                }
+            }
+        },
+        "post" : {
+            "description" : "Save user data",
+            "tags" : ["/users"],
+            "parameters" : [{
+                "description" : "send user_name and password",
+                "name" : "user to create",
+                "in" : "body",
+                "schema" :{
+                    "type" : "object",
+                    "properties" : {
+                        "user_name" : "something",
+                        "password" : "something"
+                    }
+                }
+            }],
+            "responses": {
+                "200" : {
+                    "description" : "OK"
+                }
+            }
+        },
+        "put" : {
+            "description" : "Update existing users data",
+            "tags" : ["/users"],
+            "parameters" : [{
+                "description" : "send user_name and new_user_name",
+                "name" : "user to update",
+                "in" : "body",
+                "schema" :{
+                    "type" : "object",
+                    "properties" : {
+                        "user_name" : "something",
+                        "new_user_name" : "something"
+                    }
+                }
+            }],
+            "responses": {
+                "200" : {
+                    "description" : "OK"
+                }
+            }
+        },
+        "delete" : {
+            "description" : "Delete existing user",
+            "tags" : ["/users"],
+            "parameters" : [{
+                "description" : "send user_name",
+                "name" : "user to delete",
+                "in" : "body",
+                "schema" :{
+                    "type" : "object",
+                    "properties" : {
+                        "user_name" : "something"
+                    }
+                }
+            }],
+            "responses": {
+                "200" : {
+                    "description" : "OK"
+                }
+            }
+        }
+      }
+    }
+ }
+ 
+  

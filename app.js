@@ -1,9 +1,13 @@
+
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const  mongoDB = require('./config/components/mongo');
+const swaggerUI = require('swagger-ui-express');
+const swaggerDoc = require('./swagger.json');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
 
@@ -21,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/apidocs',swaggerUI.serve,swaggerUI.setup(swaggerDoc));
 
 mongoDB.bootstrap();
 
@@ -39,5 +44,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
